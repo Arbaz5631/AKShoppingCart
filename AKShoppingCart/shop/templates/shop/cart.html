@@ -1,0 +1,53 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} Cart {% endblock %}
+{% block body %}
+
+    <ul class="list-group list-group-flush" id="cart_items">
+            
+               
+           
+           
+    </ul
+
+
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for(var item in cart)
+     {
+  
+        let  name = cart[item][1];
+        let qty = cart[item][0];
+        let image=cart[item][2]
+        var id=item(2,)                       
+        myStr=`<div class="container-fluid">
+      
+  <div class="row">
+    <div class="col-sm-3"> 
+      <p> ${name}</p>
+    </div>
+    <div class="col-sm-9" >
+      <p>${image}</p>
+    </div>
+    <div class="col-sm-9" >
+      <img src='/media/shop/images/${id}.jpg'>
+    </div>    
+  </div>
+</div> 
+                `
+        $('#cart_items').append(myStr);
+
+}
+</script>
+
+
+
+
+
+{% endblock %}
